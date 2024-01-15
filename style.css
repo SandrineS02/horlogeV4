@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    --primaryColor-:rgb(8,6,12);
+    --secondaryColor-: aqua;
+    --complementaryColor- : white;
+    --shadow-: 0 0 10px white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: var(--primaryColor-);
+}
+
+.sombreClair{
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    padding: 20px 20px;
+    background-color: aqua;
+    border-radius: 15px;
+}
+
+.sombreClair img{
+    width: 40px;
+    cursor: pointer;
+}
+.sombreClair img:first-child{
+    margin-right: 30px;
+}
+
+
+.horloge{
+position: relative;
+width: 500px;
+height: 500px;
+border-radius:50% ;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.horloge #am_pm{
+    width: 60px;
+    height: 40px;
+    font-family: monospace;
+    font-size: 24px;
+    background: rgb(8,6,12);
+    color: aqua;
+    border: 2px solid aqua;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    left: 360px;
+}
+.minutesTiret, .heuresChiffres{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.minutesTiret span{
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg ));
+    inset: -20px;
+    text-align: center;
+}
+.minutesTiret span p {
+    display:inline-block;
+    width: 2px;
+    height: 12px;
+    background: var(--secondaryColor-);
+    border-radius: 2px;
+    box-shadow: var(--shadow-);
+}
+
+
+
+/* (5n = tous les tiret dont l'index est un multiple de 5 ) */
+.minutesTiret span:nth-child(5n) p {
+    width: 6px;
+    height: 18px;
+    transform: translateY(2px);
+
+}
+.heuresChiffres span {
+    position: absolute;
+    /* 360° : 12 = 30° */
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+}
+.heuresChiffres span p{
+    font-family: cursive;
+    font-size: 52px;
+    color: var(--secondaryColor-);
+    text-shadow: 0 0 10px var(--secondaryColor-);
+    /* je remet les chiffres droit, comme il on pris un angle de 30°, je deduis 30° */
+    transform: rotate(calc(var(--index) * -30deg));
+}
+
+
+
+.centreEx{
+    width: 25px;
+    height: 25px;
+    background: var(--secondaryColor-);
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.centreInt{
+    width: 15px;
+    height: 15px;
+    background: var(--complementaryColor);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: var(--shadow-);
+}
+.centreInt{
+background: var(--secondaryColor-);
+}
+.aiguilles{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.aiguilles .heures i, .aiguilles .minutes i, .aiguilles .secondes i{
+    display:inline-block;
+    /* transform: rotate(); */
+    transform-origin: bottom ;
+    border-radius: 50%;
+}
+.heures, .minutes, .secondes{
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+.heures{
+    width: 320px;
+    height: 320px;
+}
+.heures i{
+    width: 8px;
+    height: 160px;
+    background: var(--secondaryColor-);
+    box-shadow: var(--shadow-);    
+}
+
+
+.minutes{
+    width: 450px;
+    height: 450px;
+}
+.minutes i{
+    width: 6px;
+    height: 225px;
+    background: var(--secondaryColor-);
+    box-shadow: var(--shadow-);  
+}
+
+.secondes{
+    width: 480px;
+    height: 480px;
+}
+
+.secondes i{
+    width: 2px;
+    height: calc(240px + 70px);
+    background:  var(--complementaryColor-);    
+}
+
+
+#pays {
+    height: auto;
+    padding: 25px;
+    font-family: cursive;
+    font-weight: bold;
+    background: var(--primaryColor-);
+    outline: none;
+    border: 2px solid aqua;
+    border-radius: 15px;
+    color: aqua;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    cursor: pointer;
+}
+
+/* .fuseaux{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 15px;
+    box-shadow: var(--shadow-);
+    cursor: pointer;
+}
+
+.btnpays label{
+    font-family: cursive;
+    font-size: 28px;
+    color: var(--secondaryColor-);
+}
+
+#horlogeNumerique{
+    width: auto;
+    height: auto;
+    border: 2px solid var(--secondaryColor-);
+    padding: 20px;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 52px;
+    color: var(--secondaryColor-);
+    box-shadow: var(--shadow-);
+    text-shadow: 0 0 7px var(--complementaryColor-);
+    position: relative;
+    left: 40px;
+    top: 50px;
+} */
